@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Данные станка</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="firebaseConfig.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Данные станка</h1>
+        <div id="data-container" class="row"></div>
+        <canvas id="temperatureChart" class="my-4"></canvas>
+        <canvas id="pressureChart" class="my-4"></canvas>
+    </div>
+</body>
+</html>
