@@ -1,5 +1,5 @@
 // Загрузка конфигурации Firebase из файла
-fetch('configBackend.json')
+fetch('configFrontend.json')
     .then(response => response.json())
     .then(firebaseConfig => {
         // Инициализация Firebase
