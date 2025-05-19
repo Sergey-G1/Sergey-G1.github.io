@@ -131,6 +131,18 @@
             font-size: 0.9rem;
         }
 
+        .project-card.indicator-card {
+            border: 2px dashed var(--accent-color-indicator); /* Пунктирная рамка другого цвета */
+        }
+
+        .project-card.indicator-card .project-info h3 {
+            color: var(--accent-color-indicator); /* Заголовок в цвет рамки */
+        }
+        .project-card.indicator-card:hover {
+            box-shadow: 0 8px 20px rgba(255, 126, 95, 0.3); /* Тень в цвет акцента при наведении */
+        }
+
+
         /* Адаптация */
         @media (max-width: 768px) {
             .container {
@@ -201,6 +213,13 @@
                 <div class="project-info">
                     <h3>Вариант Qwen 3.0 Max</h3>
                     <p>Разработано с Qwen 3.0 Max</p>
+                </div>
+            </a>
+            <a href="indicator.html" class="project-card indicator-card">
+                <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGludGVyYWN0aXZlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Иллюстрация для Интерактивного индикатора">
+                <div class="project-info">
+                    <h3 style="color: red;">Интерактивный индикатор</h3>
+                    <p>Проект с интерактивным элементом</p>
                 </div>
             </a>
         </main>

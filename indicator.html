@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стрелочный Индикатор</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --light-gray: #ecf0f1;
+    --dark-gray: #7f8c8d;
+    --text-color: #333;
+    --background-color: #f4f7f6;
+    --background-color-high: #fadbd8;
+    --indicator-track-color: #bdc3c7;
+    --indicator-thumb-color: var(--primary-color);
+    --indicator-thumb-color-high: var(--danger-color);
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease;
+}
+
+body.high-value-active {
+    background-color: var(--background-color-high);
+}
+
+.container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.indicator-wrapper {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.indicator-track {
+    background-color: var(--indicator-track-color);
+    height: 10px;
+    border-radius: 5px;
+    position: relative;
+    margin: 20px 0;
+}
+
+.indicator-ticks {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+    pointer-events: none;
+}
+
+.indicator-ticks span {
+    font-size: 12px;
+    color: var(--dark-gray);
+    position: relative;
+}
+.indicator-ticks span::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 5px;
+    background-color: var(--dark-gray);
+}
+
+#arrowIndicator {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    outline: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+#arrowIndicator::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: var(--indicator-thumb-color);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-top: -7px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#arrowIndicator::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+#arrowIndicator.high-value::-webkit-slider-thumb {
+    background-color: var(--indicator-thumb-color-high);
+}
+
+#arrowIndicator::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background-color: var(--indicator-thumb-color);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#arrowIndicator::-moz-range-thumb:hover {
+    transform: scale(1.1);
+}
+#arrowIndicator.high-value::-moz-range-thumb {
+    background-color: var(--indicator-thumb-color-high);
+}
+
+#arrowIndicator::-ms-thumb {
+    width: 24px;
+    height: 24px;
+    background-color: var(--indicator-thumb-color);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-top: 0px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#arrowIndicator.high-value::-ms-thumb {
+    background-color: var(--indicator-thumb-color-high);
+}
+#arrowIndicator::-ms-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+#arrowIndicator::-ms-fill-lower {
+    background: var(--indicator-track-color);
+    border-radius: 5px;
+}
+#arrowIndicator::-ms-fill-upper {
+    background: var(--indicator-track-color);
+    border-radius: 5px;
+}
+
+.indicator-value-display {
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.indicator-value-display.high-value {
+    color: var(--danger-color);
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.keyboard button {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.keyboard button:hover {
+    background-color: #dcdde1;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.keyboard button:active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(0.95);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Интерактивный Индикатор</h1>
+
+        <div class="indicator-wrapper">
+            <div class="indicator-track">
+                <div class="indicator-ticks">
+                </div>
+                <input type="range" id="arrowIndicator" min="0" max="9" value="0" step="1">
+            </div>
+            <div class="indicator-value-display" id="currentValueDisplay">0</div>
+        </div>
+
+        <div class="keyboard" id="keyboard">
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
