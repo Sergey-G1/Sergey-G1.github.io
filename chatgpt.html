@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Резюме — Сергей</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+
+    .circle-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .section {
+      padding: 60px 0;
+    }
+
+    .skills-list li {
+      display: inline-block;
+      background: #f1f1f1;
+      margin: 5px;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: #f8f9fa;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+    }
+
+    .thank-you {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-primary text-white text-center section">
+  <img src="itsme.jpg" alt="Фото Сергея" class="circle-img mb-3">
+  <h1>Сергей</h1>
+  <p class="lead">Должность: Студент 3-го курса</p>
+  <div class="mt-3">
+    <a href="#contacts" class="btn btn-light me-2">Связаться со мной</a>
+    <a href="#" class="btn btn-outline-light">Скачать резюме</a>
+  </div>
+</header>
+
+<!-- О себе -->
+<section class="section container">
+  <h2 class="mb-4">О себе</h2>
+  <p>Я прохожу курс "Основы программного обеспечения", в рамках которого сравниваю модели нейросетей.</p>
+</section>
+
+<!-- Опыт работы -->
+<section class="section bg-light">
+  <div class="container">
+    <h2 class="mb-4">Опыт работы</h2>
+    <ul>
+      <li><a href="https://sergey-g1.github.io/interior" target="_blank">Interior</a></li>
+      <li><a href="https://sergey-g1.github.io/aimTrain/" target="_blank">AimTrain</a></li>
+      <li><a href="https://sergey-g1.github.io/dsgn/" target="_blank">Dsgn</a></li>
+      <li><a href="https://sergey-g1.github.io/SkyWork/" target="_blank">SkyWork</a></li>
+      <li><a href="https://sergey-g1.github.io/catland/" target="_blank">Catland</a></li>
+      <li ><a href="https://sergey-g1.github.io/poem/" target="_blank">Poem</a></li>
+  
+    </ul>
+  </div>
+</section>
+
+<!-- Навыки -->
+<section class="section container">
+  <h2 class="mb-4">Навыки</h2>
+  <ul class="skills-list list-unstyled">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>php</li>
+    <li>c подобные языки</li>
+    <li>python</li>
+    <li>sql</li>
+  </ul>
+</section>
+
+<!-- Контакты -->
+<section class="section bg-light" id="contacts">
+  <div class="container">
+    <h2 class="mb-4">Контакты</h2>
+    <form id="contactForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Имя</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Сообщение</label>
+        <textarea class="form-control" id="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+    <div class="alert alert-success mt-3 thank-you" role="alert">
+      Спасибо за обращение!
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Сергей АДБ-22-06</p>
+</footer>
+
+<script>
+  // Простая валидация формы
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+      alert("Пожалуйста, заполните все поля.");
+      return;
+    }
+
+    // Имитация отправки
+    document.querySelector(".thank-you").style.display = "block";
+    this.reset();
+  });
+</script>
+
+</body>
+</html>

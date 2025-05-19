@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои Проекты-Резюме</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a11cb; /* Фиолетовый */
+            --secondary-color: #2575fc; /* Синий */
+            --background-color: #f0f2f5; /* Светло-серый фон */
+            --card-background: #ffffff;
+            --text-color: #333333;
+            --text-light: #f8f9fa;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Чтобы контент был сверху, если его мало */
+            min-height: 100vh;
+            padding: 20px;
+            background-image: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px; /* Фиксированная высота для единообразия */
+            object-fit: cover; /* Масштабирует изображение, сохраняя пропорции и обрезая лишнее */
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.9);
+        }
+
+        .project-info {
+            padding: 20px;
+            flex-grow: 1; /* Чтобы текстовый блок занимал оставшееся место, если карточки разной высоты */
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .project-info p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптация */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header .subtitle {
+                font-size: 1rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr; /* Одна колонка на мобильных */
+                gap: 20px;
+            }
+            .project-card img {
+                height: 180px;
+            }
+            .project-info h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .project-card img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Мои Проекты-Резюме</h1>
+            <p class="subtitle">Это мои страницы-резюме, созданные с помощью различных инструментов и подходов.</p>
+        </header>
+
+        <main class="projects-grid">
+            <a href="index2.html" class="project-card">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Иллюстрация для моего варианта">
+                <div class="project-info">
+                    <h3>Мой вариант</h3>
+                    <p>Собственная разработка и дизайн</p>
+                </div>
+            </a>
+
+            <a href="gemini.html" class="project-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGF0YSUyMGFuYWx5c2lzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Иллюстрация для Gemini 2.5 Pro">
+                <div class="project-info">
+                    <h3>Вариант Gemini 2.5 Pro</h3>
+                    <p>Сгенерировано с Gemini 2.5 Pro</p>
+                </div>
+            </a>
+
+            <a href="chatgpt.html" class="project-card">
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Иллюстрация для ChatGpt 4o">
+                <div class="project-info">
+                    <h3>Вариант ChatGPT 4o</h3>
+                    <p>Создано при помощи ChatGPT 4o</p>
+                </div>
+            </a>
+
+            <a href="qwen.html" class="project-card">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2plY3QlMjBtYW5hZ2VtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Иллюстрация для Qwen 3.0 Max">
+                <div class="project-info">
+                    <h3>Вариант Qwen 3.0 Max</h3>
+                    <p>Разработано с Qwen 3.0 Max</p>
+                </div>
+            </a>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Сергей АДБ-22-06</p>
+        </footer>
+    </div>
+</body>
+</html>
